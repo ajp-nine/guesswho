@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-const MAX_BLUR = 50
+const MAX_BLUR = 80
 const currentValue = ref(MAX_BLUR)
 
 export function useBlur() {

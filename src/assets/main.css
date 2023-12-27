@@ -11,6 +11,8 @@
 
 body {
   background: linear-gradient(-28.51deg, #0a3766ff 0%, #000000ff 100%);
+  /*font-family: 'Lato', sans-serif;*/
+  font-display: swap;
 }
 
 #app {
@@ -19,9 +21,6 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-}
-
-header {
 }
 
 main {

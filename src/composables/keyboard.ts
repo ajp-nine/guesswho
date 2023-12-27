@@ -26,19 +26,28 @@ export function useKeyboard() {
   onKey('a', score.decreaseTeam1)
   onKey('e', score.increaseTeam2)
   onKey('d', score.decreaseTeam2)
+  onKey('1', () => {
+    score.increaseTeam1(point.currentPoint.value)
+    blur.reveal()
+  })
+  onKey('3', () => {
+    score.increaseTeam2(point.currentPoint.value)
+    blur.reveal()
+  })
 
   // Reduce
   onKey(
     ' ',
     () => {
-      blur.decreaseBlur()
-
-      if (
-        image.images.value[image.imagePos.value].pointBreakpoints.some(
-          (bp) => blur.currentValue.value === bp
-        )
-      ) {
-        point.decreasePoint()
+      if (blur.currentValue.value > 0) {
+        blur.decreaseBlur()
+        if (
+          image.images.value[image.imagePos.value].pointBreakpoints.some(
+            (bp) => blur.currentValue.value === bp
+          )
+        ) {
+          point.decreasePoint()
+        }
       }
     },
     false
@@ -58,4 +67,14 @@ export function useKeyboard() {
     point.resetPoint()
     blur.resetBlur()
   })
+
+  function onKeyWithCallback(key: string, callback: any) {
+    onKey(key, () => {
+      callback()
+    })
+  }
+
+  return {
+    onKeyWithCallback
+  }
 }

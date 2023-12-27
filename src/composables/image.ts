@@ -3,11 +3,10 @@ import { ref } from 'vue'
 const DEFAULT_BREAKPOINTS = [40, 30, 20, 10, 5]
 const images = ref([
   {
-    filename: '1.jpeg',
-    pointBreakpoints: DEFAULT_BREAKPOINTS
-  },
-  { filename: '2.webp', pointBreakpoints: DEFAULT_BREAKPOINTS },
-  { filename: '3.jpeg', pointBreakpoints: DEFAULT_BREAKPOINTS }
+    filename: 'trial.jpeg',
+    pointBreakpoints: DEFAULT_BREAKPOINTS,
+    name: 'Bubber'
+  }
 ])
 const imagePos = ref(0)
 
@@ -28,6 +27,7 @@ export function useImage() {
     nextImage,
     previousImage,
     imagePos,
+
     images
   }
 }
